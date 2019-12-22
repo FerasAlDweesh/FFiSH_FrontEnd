@@ -8,15 +8,10 @@ import Login from "../components/Login";
 
 const StackNav = createStackNavigator(
   {
-    List: List,
-    Profile: Profile,
-    Login: Login
+    List: List
   },
   {
-    initialRouteName: "List",
-    defaultNavigationOptions: {
-      title: "List"
-    }
+    initialRouteName: "List"
   }
 );
 

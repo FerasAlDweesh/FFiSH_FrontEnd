@@ -8,8 +8,8 @@ import AuthStack from "./AuthStack";
 
 const BottomTab = createBottomTabNavigator(
   {
-    StackTab: StackNav,
-    AuthTab: AuthStack
+    AuthTab: AuthStack,
+    StackTab: StackNav
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
