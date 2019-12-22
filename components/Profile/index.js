@@ -21,25 +21,17 @@ import {
 } from "native-base";
 
 // Buttons
-import CartButton from "../Buttons/CartButton";
-import CardButton from "../Buttons/CardButton";
+
+import LogoutButton from "../Buttons/LogoutButton";
 
 // Stores
 import authStore from "../../stores/authStore";
-import orderStore from "../../stores/orderStore";
 import profileStore from "../../stores/profileStore";
-
-//Styles
-import styles from "./styles";
-import LogoutButton from "../Buttons/LogoutButton";
 
 class Profile extends Component {
   componentDidMount = async () => {
     if (authStore.user) {
-      console.log("BEFORE");
       await profileStore.getUserProfile();
-      console.log("AFTER PROFILE");
-      await orderStore.fetchAllOrders();
     } else {
       this.props.navigation.replace("Login");
     }
@@ -80,7 +72,7 @@ class Profile extends Component {
 }
 
 Profile.navigationOptions = {
-  title: "Profile"
-  //   headerLeft: <LogoutButton />
+  title: "Profile",
+  headerLeft: <LogoutButton />
 };
 export default observer(Profile);

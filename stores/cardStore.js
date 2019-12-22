@@ -9,6 +9,7 @@ class CardStore {
     try {
       const res = await instance.get("cards/");
       const cards = res.data;
+      console.log("can i see my ", cards);
       this.cards = cards;
       this.loading = false;
     } catch (err) {

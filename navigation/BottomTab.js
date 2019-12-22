@@ -17,10 +17,10 @@ const BottomTab = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === "StackTab") {
-          iconName = "card_giftcard";
+          iconName = "cards";
           iconType = "MaterialIcons";
         } else if (routeName === "AuthTab") {
-          iconName = "person_outline";
+          iconName = "person";
           iconType = "MaterialIcons";
         }
         return (

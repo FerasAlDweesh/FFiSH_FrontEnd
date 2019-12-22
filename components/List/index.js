@@ -7,6 +7,9 @@ import { List, Content, Spinner, Container } from "native-base";
 // Component
 import VendorCard from "./VendorCard";
 
+// Buttons
+import LogoutButton from "../Buttons/LogoutButton";
+
 // Stores
 
 import cardStore from "../../stores/cardStore";
@@ -26,7 +29,8 @@ const CardList = ({ navigation }) => {
 };
 
 CardList.navigationOptions = {
-  title: "Card List"
+  title: "Card List",
+  headerLeft: <LogoutButton />
 };
 
 export default observer(CardList);
