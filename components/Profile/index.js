@@ -26,21 +26,27 @@ import LogoutButton from "../Buttons/LogoutButton";
 
 // Stores
 import authStore from "../../stores/authStore";
+import cardStore from "../../stores/cardStore";
 import profileStore from "../../stores/profileStore";
 
 class Profile extends Component {
   componentDidMount = async () => {
     if (authStore.user) {
       await profileStore.getUserProfile();
+      await cardStore.fetchAllCards();
     } else {
       this.props.navigation.replace("Login");
     }
   };
 
   render() {
-    if (profileStore.loading) {
+    if (profileStore.loading || cardStore.loading) {
       return <Spinner />;
     } else {
+      const myCards = cardStore.cards.map(card => ({
+        title: card.name,
+        content: card.id
+      }));
       return (
         <>
           <Content>
@@ -62,6 +68,16 @@ class Profile extends Component {
                     {profileStore.user.email}
                   </Text>
                 </Body>
+              </ListItem>
+              <Header>
+                <Left>
+                  <Text style={{ fontSize: 20 }}>My Cards:</Text>
+                </Left>
+              </Header>
+              <ListItem>
+                <Content padder>
+                  <Accordion dataArray={myCards} expanded={2} />
+                </Content>
               </ListItem>
             </List>
           </Content>

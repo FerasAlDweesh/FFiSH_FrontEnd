@@ -17,7 +17,7 @@ const BottomTab = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === "StackTab") {
-          iconName = "cards";
+          iconName = "redeem";
           iconType = "MaterialIcons";
         } else if (routeName === "AuthTab") {
           iconName = "person";
