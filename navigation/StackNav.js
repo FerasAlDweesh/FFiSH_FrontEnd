@@ -1,17 +1,17 @@
 import { createStackNavigator } from "react-navigation-stack";
 
 // Components
-import List from "../components/List";
+import VendorList from "../components/VendorList";
 import Profile from "../components/Profile";
 import Login from "../components/Login";
 // import Register from "../components/Register";
 
 const StackNav = createStackNavigator(
   {
-    List: List
+    VendorList: VendorList
   },
   {
-    initialRouteName: "List"
+    initialRouteName: "VendorList"
   }
 );
 
