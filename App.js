@@ -6,7 +6,7 @@ import authStore from "./stores/authStore";
 
 class App extends React.Component {
   state = {
-    loading: true
+    loading: false
   };
 
   async componentDidMount() {
@@ -20,7 +20,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <Spinner />;
+      return <Spinner color="red" />;
     }
     return <AppContainer />;
   }

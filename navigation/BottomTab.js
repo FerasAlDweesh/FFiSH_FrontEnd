@@ -16,6 +16,7 @@ const BottomTab = createBottomTabNavigator(
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+        let iconType;
         if (routeName === "StackTab") {
           iconName = "redeem";
           iconType = "MaterialIcons";
