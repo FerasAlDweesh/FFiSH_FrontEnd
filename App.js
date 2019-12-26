@@ -1,7 +1,7 @@
 import React from "react";
 import AppContainer from "./navigation";
 import { Spinner } from "native-base";
-import * as Font from "expo-font";
+import Font from "expo-font";
 import authStore from "./stores/authStore";
 
 class App extends React.Component {
