@@ -3,9 +3,9 @@ import { observer } from "mobx-react";
 
 // NativeBase Components
 import { List, Content, Spinner, Container } from "native-base";
-
 // Component
 import MerchantCard from "./MerchantCard";
+import MyCarousel from "../Carousel/index";
 
 // Buttons
 import LogoutButton from "../Buttons/LogoutButton";
@@ -14,16 +14,15 @@ import LogoutButton from "../Buttons/LogoutButton";
 import vendorStore from "../../stores/vendorStore";
 
 const VendorList = () => {
-  if (vendorStore.loading) return <Spinner />;
+  console.log("vend", vendorStore.vendorCards);
+  if (vendorStore.loading) return <Spinner color="red" />;
 
   const vendorList = vendorStore.vendorCards.map(card => (
     <MerchantCard card={card} key={card.id} />
   ));
   return (
     <Container>
-      <Content>
-        <List>{vendorList}</List>
-      </Content>
+      <MyCarousel />
     </Container>
   );
 };
