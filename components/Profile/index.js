@@ -39,6 +39,12 @@ class Profile extends Component {
     }
   };
 
+  componentDidUpdate = () => {
+    if (!authStore.user) {
+      this.props.navigation.replace("Login");
+    }
+  };
+
   render() {
     if (profileStore.loading || cardStore.loading) {
       return <Spinner />;
