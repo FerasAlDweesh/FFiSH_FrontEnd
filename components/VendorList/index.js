@@ -23,6 +23,8 @@ const VendorList = () => {
   return (
     <Container>
       <MyCarousel />
+      <MyCarousel />
+      <MyCarousel />
     </Container>
   );
 };
