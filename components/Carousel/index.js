@@ -8,9 +8,20 @@ import {
   Text,
   ImageBackground
 } from "react-native";
+
+// NativeBase Components
+import { Right, Icon } from "native-base";
+
 import vendorStore from "../../stores/vendorStore";
 import { red, bold } from "ansi-colors";
 import { Thumbnail } from "native-base";
+
+// Stores
+
+import pointStore from "../../stores/pointStore";
+
+// Buttons
+import AddPointButton from "../Buttons/AddPointButton";
 
 const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
@@ -55,6 +66,32 @@ class MyCarousel extends Component {
           >
             {item.name}
           </Text>
+          <Text
+            note
+            style={{
+              fontWeight: "bold",
+              fontSize: 18,
+              color: "white",
+              position: "absolute",
+              marginLeft: 20,
+              top: 35,
+              left: 50
+            }}
+          >
+            {item.points}
+          </Text>
+          <Icon
+            onPress={() => pointStore.addPoint(item.id)}
+            name="plus-circle"
+            type="MaterialCommunityIcons"
+            style={{
+              color: "rgb(153,0,0)",
+              position: "absolute",
+              marginLeft: 20,
+              bottom: 5,
+              right: 5
+            }}
+          />
         </ImageBackground>
       </View>
     );

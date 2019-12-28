@@ -2,9 +2,27 @@ import React from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { List, Content, Spinner, Container } from "native-base";
+import {
+  Body,
+  Button,
+  Card,
+  CardItem,
+  Text,
+  Spinner,
+  Container,
+  Header,
+  Content,
+  Accordion,
+  List,
+  ListItem,
+  Title,
+  Thumbnail,
+  headerLeft,
+  Left,
+  Right,
+  Icon
+} from "native-base";
 // Component
-import MerchantCard from "./MerchantCard";
 import MyCarousel from "../Carousel/index";
 
 // Buttons
@@ -18,15 +36,51 @@ const VendorList = () => {
 
   return (
     <Container>
+      <Left>
+        <Text
+          style={{
+            fontSize: 25,
+            fontFamily: "DamascusBold",
+            position: "absolute",
+            right: 15
+          }}
+        >
+          Restaurants
+        </Text>
+      </Left>
       <MyCarousel />
+      <Left>
+        <Text
+          style={{
+            fontSize: 25,
+            fontFamily: "DamascusBold",
+            position: "absolute",
+            right: 15
+          }}
+        >
+          Cafes
+        </Text>
+      </Left>
       <MyCarousel />
+      <Left>
+        <Text
+          style={{
+            fontSize: 25,
+            fontFamily: "DamascusBold",
+            position: "absolute",
+            right: 15
+          }}
+        >
+          Donuts
+        </Text>
+      </Left>
       <MyCarousel />
     </Container>
   );
 };
 
 VendorList.navigationOptions = {
-  title: "Vendor List",
+  title: "Vendor Cards",
   headerLeft: <LogoutButton />
 };
 

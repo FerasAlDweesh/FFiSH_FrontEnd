@@ -72,18 +72,39 @@ class Profile extends Component {
                   />
                 </Left>
                 <Body>
-                  <Text style={{ fontSize: 30 }}>{profileStore.user.name}</Text>
-                  <Text note style={{ fontSize: 15 }}>
+                  <Text style={{ fontSize: 30, fontFamily: "Damascus" }}>
+                    {profileStore.user.name}
+                  </Text>
+                  <Text note style={{ fontSize: 15, fontFamily: "Damascus" }}>
                     {profileStore.user.email}
                   </Text>
                 </Body>
               </ListItem>
-              <Header>
+              <Header transparent>
                 <Left>
-                  <Text style={{ fontSize: 30 }}>My Cards:</Text>
+                  <Text
+                    style={{
+                      fontSize: 30,
+                      fontFamily: "DamascusBold"
+                    }}
+                  >
+                    Favorites
+                  </Text>
                 </Left>
               </Header>
               <MyCardsCarousel />
+              <Header transparent>
+                <Left>
+                  <Text
+                    style={{
+                      fontSize: 30,
+                      fontFamily: "DamascusBold"
+                    }}
+                  >
+                    Rewards
+                  </Text>
+                </Left>
+              </Header>
             </List>
           </Content>
         </>
