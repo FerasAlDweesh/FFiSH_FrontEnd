@@ -5,14 +5,18 @@ import Profile from "../components/Profile";
 import Login from "../components/Login";
 import Register from "../components/Register";
 
+// Auth
+import LoginScreen from "../Auth/screens/LoginScreen";
+import RegisterScreen from "../Auth/screens/RegisterScreen";
+
 //Navigation
 import StackNav from "./StackNav";
 
 const AuthStack = createStackNavigator(
   {
     Profile: Profile,
-    Login: Login,
-    Register: Register
+    Login: LoginScreen,
+    Register: RegisterScreen
   },
   {
     initialRouteName: "Profile",

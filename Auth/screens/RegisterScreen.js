@@ -1,107 +1,114 @@
-import React, { memo, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Button from '../components/Button';
-import TextInput from '../components/TextInput';
-import BackButton from '../components/BackButton';
-import { theme } from '../core/theme';
-import {
-  emailValidator,
-  passwordValidator,
-  nameValidator,
-} from '../core/utils';
+import React, { Component } from "react";
+import { observer } from "mobx-react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Background from "../components/Background";
+import Logo from "../components/Logo";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import BackButton from "../components/BackButton";
+import { theme } from "../core/theme";
 
-const RegisterScreen = ({ navigation }) => {
-  const [name, setName] = useState({ value: '', error: '' });
-  const [email, setEmail] = useState({ value: '', error: '' });
-  const [password, setPassword] = useState({ value: '', error: '' });
+// NativeBase Components
+import { Form, Item, Input } from "native-base";
 
-  const _onSignUpPressed = () => {
-    const nameError = nameValidator(name.value);
-    const emailError = emailValidator(email.value);
-    const passwordError = passwordValidator(password.value);
+// Store
+import authStore from "../../stores/authStore";
 
-    if (emailError || passwordError || nameError) {
-      setName({ ...name, error: nameError });
-      setEmail({ ...email, error: emailError });
-      setPassword({ ...password, error: passwordError });
-      return;
-    }
-
-    navigation.navigate('Dashboard');
+class RegisterScreen extends Component {
+  state = {
+    username: "",
+    password: "",
+    first_name: "",
+    last_name: "",
+    email: ""
   };
 
-  return (
-    <Background>
-      <BackButton goBack={() => navigation.navigate('HomeScreen')} />
+  handlePress = () => {
+    authStore.register(this.state, this.props.navigation);
+  };
+  render() {
+    return (
+      <Background>
+        <BackButton goBack={() => navigation.navigate("HomeScreen")} />
 
-      <Logo />
+        <Logo />
 
-      <Header>Create Account</Header>
+        <Header>Create Account</Header>
 
-      <TextInput
-        label="Name"
-        returnKeyType="next"
-        value={name.value}
-        onChangeText={text => setName({ value: text, error: '' })}
-        error={!!name.error}
-        errorText={name.error}
-      />
+        <Item>
+          <Input
+            placeholder="Username"
+            autoCapitalize="none"
+            onChangeText={username => this.setState({ username })}
+          />
+        </Item>
+        <Item>
+          <Input
+            placeholder="Password"
+            autoCapitalize="none"
+            secureTextEntry={true}
+            onChangeText={password => this.setState({ password })}
+          />
+        </Item>
+        <Item>
+          <Input
+            placeholder="First Name"
+            autoCapitalize="none"
+            onChangeText={first_name => this.setState({ first_name })}
+          />
+        </Item>
+        <Item>
+          <Input
+            placeholder="Last Name"
+            autoCapitalize="none"
+            onChangeText={last_name => this.setState({ last_name })}
+          />
+        </Item>
+        <Item>
+          <Input
+            placeholder="Email"
+            autoCapitalize="none"
+            onChangeText={email => this.setState({ email })}
+          />
+        </Item>
 
-      <TextInput
-        label="Email"
-        returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({ value: text, error: '' })}
-        error={!!email.error}
-        errorText={email.error}
-        autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
-      />
+        <Button
+          mode="contained"
+          onPress={this.handlePress}
+          style={styles.button}
+        >
+          Sign Up
+        </Button>
 
-      <TextInput
-        label="Password"
-        returnKeyType="done"
-        value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
-        error={!!password.error}
-        errorText={password.error}
-        secureTextEntry
-      />
-
-      <Button mode="contained" onPress={_onSignUpPressed} style={styles.button}>
-        Sign Up
-      </Button>
-
-      <View style={styles.row}>
-        <Text style={styles.label}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-          <Text style={styles.link}>Login</Text>
-        </TouchableOpacity>
-      </View>
-    </Background>
-  );
-};
+        <View style={styles.row}>
+          <Text style={styles.label}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+            <Text style={styles.link}>Login</Text>
+          </TouchableOpacity>
+        </View>
+      </Background>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   label: {
-    color: theme.colors.secondary,
+    color: theme.colors.secondary
   },
   button: {
-    marginTop: 24,
+    marginTop: 24
   },
   row: {
-    flexDirection: 'row',
-    marginTop: 4,
+    flexDirection: "row",
+    marginTop: 4
   },
   link: {
-    fontWeight: 'bold',
-    color: theme.colors.primary,
-  },
+    fontWeight: "bold",
+    color: theme.colors.primary
+  }
 });
 
-export default memo(RegisterScreen);
+RegisterScreen.navigationOptions = {
+  title: "Register"
+};
+export default observer(RegisterScreen);
