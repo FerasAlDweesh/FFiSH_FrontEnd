@@ -11,9 +11,10 @@ import {
 import vendorStore from "../../stores/vendorStore";
 import { red, bold } from "ansi-colors";
 import { Thumbnail } from "native-base";
+import cardStore from "../../stores/cardStore";
 
 const { width: screenWidth } = Dimensions.get("window");
-class MyCarousel extends Component {
+class MyCardsCarousel extends Component {
   _renderItem({ item, index }, parallaxProps) {
     return (
       <View>
@@ -28,7 +29,7 @@ class MyCarousel extends Component {
         >
           <ParallaxImage
             source={{
-              uri: item.image
+              uri: item.vendor.image
             }}
             containerStyle={styles.imageContainer}
             style={styles.image}
@@ -37,7 +38,10 @@ class MyCarousel extends Component {
           />
           <Thumbnail
             bordered
-            source={{ uri: item.image }}
+            source={{
+              uri:
+                "https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg"
+            }}
             style={{
               position: "absolute"
             }}
@@ -53,7 +57,7 @@ class MyCarousel extends Component {
               left: 50
             }}
           >
-            {item.name}
+            {item.vendor.name}
           </Text>
         </ImageBackground>
       </View>
@@ -66,7 +70,7 @@ class MyCarousel extends Component {
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}
-        data={vendorStore.vendorCards}
+        data={cardStore.cards}
         renderItem={this._renderItem}
         hasParallaxImages={true}
       />
@@ -91,4 +95,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default observer(MyCarousel);
+export default observer(MyCardsCarousel);

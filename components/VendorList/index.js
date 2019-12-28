@@ -14,12 +14,8 @@ import LogoutButton from "../Buttons/LogoutButton";
 import vendorStore from "../../stores/vendorStore";
 
 const VendorList = () => {
-  console.log("vend", vendorStore.vendorCards);
   if (vendorStore.loading) return <Spinner color="red" />;
 
-  const vendorList = vendorStore.vendorCards.map(card => (
-    <MerchantCard card={card} key={card.id} />
-  ));
   return (
     <Container>
       <MyCarousel />
