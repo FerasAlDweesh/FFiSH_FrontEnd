@@ -40,7 +40,9 @@ const VendorList = () => {
         <Text
           style={{
             fontSize: 25,
-            fontFamily: "DamascusBold"
+            fontFamily: "DamascusBold",
+            position: "absolute",
+            right: 15
           }}
         >
           Restaurants
@@ -51,7 +53,9 @@ const VendorList = () => {
         <Text
           style={{
             fontSize: 25,
-            fontFamily: "DamascusBold"
+            fontFamily: "DamascusBold",
+            position: "absolute",
+            right: 15
           }}
         >
           Cafes
@@ -62,7 +66,9 @@ const VendorList = () => {
         <Text
           style={{
             fontSize: 25,
-            fontFamily: "DamascusBold"
+            fontFamily: "DamascusBold",
+            position: "absolute",
+            right: 15
           }}
         >
           Donuts

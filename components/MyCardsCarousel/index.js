@@ -8,10 +8,11 @@ import {
   Text,
   ImageBackground
 } from "react-native";
-import vendorStore from "../../stores/vendorStore";
-import { red, bold } from "ansi-colors";
 import { Thumbnail } from "native-base";
 import cardStore from "../../stores/cardStore";
+
+// Buttons
+import AddPointButton from "../Buttons/AddPointButton";
 
 const { width: screenWidth } = Dimensions.get("window");
 class MyCardsCarousel extends Component {

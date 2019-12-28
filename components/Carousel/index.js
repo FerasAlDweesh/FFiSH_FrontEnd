@@ -20,6 +20,9 @@ import { Thumbnail } from "native-base";
 
 import pointStore from "../../stores/pointStore";
 
+// Buttons
+import AddPointButton from "../Buttons/AddPointButton";
+
 const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
   _renderItem({ item, index }, parallaxProps) {
