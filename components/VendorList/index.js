@@ -1,6 +1,8 @@
 import React from "react";
 import { observer } from "mobx-react";
 
+import Background from "../../Auth/components/Background";
+
 // NativeBase Components
 import {
   Body,
@@ -35,47 +37,49 @@ const VendorList = () => {
   if (vendorStore.loading) return <Spinner color="red" />;
 
   return (
-    <Container>
-      <Left>
-        <Text
-          style={{
-            fontSize: 25,
-            fontFamily: "DamascusBold",
-            position: "absolute",
-            right: 15
-          }}
-        >
-          Restaurants
-        </Text>
-      </Left>
-      <MyCarousel />
-      <Left>
-        <Text
-          style={{
-            fontSize: 25,
-            fontFamily: "DamascusBold",
-            position: "absolute",
-            right: 15
-          }}
-        >
-          Cafes
-        </Text>
-      </Left>
-      <MyCarousel />
-      <Left>
-        <Text
-          style={{
-            fontSize: 25,
-            fontFamily: "DamascusBold",
-            position: "absolute",
-            right: 15
-          }}
-        >
-          Donuts
-        </Text>
-      </Left>
-      <MyCarousel />
-    </Container>
+    <Background>
+      <Container>
+        <Left>
+          <Text
+            style={{
+              fontSize: 25,
+              fontFamily: "DamascusBold",
+              position: "absolute",
+              right: 15
+            }}
+          >
+            Restaurants
+          </Text>
+        </Left>
+        <MyCarousel />
+        <Left>
+          <Text
+            style={{
+              fontSize: 25,
+              fontFamily: "DamascusBold",
+              position: "absolute",
+              right: 15
+            }}
+          >
+            Cafes
+          </Text>
+        </Left>
+        <MyCarousel />
+        <Left>
+          <Text
+            style={{
+              fontSize: 25,
+              fontFamily: "DamascusBold",
+              position: "absolute",
+              right: 15
+            }}
+          >
+            Donuts
+          </Text>
+        </Left>
+        <MyCarousel />
+      </Container>
+    </Background>
   );
 };
 
