@@ -9,7 +9,6 @@ class CardStore {
     try {
       const res = await instance.get("cards/");
       const cards = res.data;
-      console.log("can i see my ", cards);
       this.cards = cards;
       this.loading = false;
     } catch (err) {
@@ -24,6 +23,5 @@ decorate(CardStore, {
 });
 
 const cardStore = new CardStore();
-cardStore.fetchAllCards();
 
 export default cardStore;

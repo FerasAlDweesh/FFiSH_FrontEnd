@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 
+import MyCardsCarousel from "../MyCardsCarousel/index";
+
 // NativeBase Components
 import {
   Body,
@@ -46,6 +48,7 @@ class Profile extends Component {
   };
 
   render() {
+    console.log("this is a message", cardStore.cards);
     if (profileStore.loading || cardStore.loading) {
       return <Spinner />;
     } else {
@@ -77,14 +80,10 @@ class Profile extends Component {
               </ListItem>
               <Header>
                 <Left>
-                  <Text style={{ fontSize: 20 }}>My Cards:</Text>
+                  <Text style={{ fontSize: 30 }}>My Cards:</Text>
                 </Left>
               </Header>
-              <ListItem>
-                <Content padder>
-                  <Accordion dataArray={myCards} expanded={2} />
-                </Content>
-              </ListItem>
+              <MyCardsCarousel />
             </List>
           </Content>
         </>

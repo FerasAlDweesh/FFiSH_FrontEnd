@@ -9,10 +9,8 @@ class VendorStore {
     try {
       const res = await instance.get("vendors/");
       const vendors = res.data;
-      console.log("Errorrrrrr", vendors);
       this.vendorCards = vendors;
       this.loading = false;
-      console.log("LOADINGNNG", this.loading);
     } catch (err) {
       console.log("ERROR", err);
     }

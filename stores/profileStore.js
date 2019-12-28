@@ -11,7 +11,6 @@ class ProfileStore {
       const res = await instance.get("profile/");
       const user = res.data;
       this.user = user;
-      console.log("help", user);
       this.loading = false;
     } catch (err) {
       console.error(err);
