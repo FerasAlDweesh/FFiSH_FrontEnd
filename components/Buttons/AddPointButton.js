@@ -19,7 +19,7 @@ const AddPointButton = ({ navigation, item }) => {
           name="plus-circle"
           type="MaterialCommunityIcons"
           style={{
-            color: "rgb(153,0,0)",
+            color: "white",
             position: "absolute",
             marginLeft: 20,
             bottom: 5,

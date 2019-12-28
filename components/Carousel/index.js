@@ -10,14 +10,16 @@ import {
 } from "react-native";
 
 // NativeBase Components
-import { Right, Icon } from "native-base";
-
+import { Right, Icon, Container, Card } from "native-base";
+import { Rating } from "react-native-ratings";
 import vendorStore from "../../stores/vendorStore";
 import { red, bold } from "ansi-colors";
 import { Thumbnail } from "native-base";
 
-// Stores
+// Style
+import styles from "./styles";
 
+// Stores
 import pointStore from "../../stores/pointStore";
 
 // Buttons
@@ -27,16 +29,8 @@ const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
   _renderItem({ item, index }, parallaxProps) {
     return (
-      <View>
-        <ImageBackground
-          style={{
-            height: 190,
-            width: 350,
-            position: "relative",
-            top: 2,
-            left: 2
-          }}
-        >
+      <Card style={styles.transparent}>
+        <ImageBackground style={styles.background}>
           <ParallaxImage
             source={{
               uri: item.image
@@ -49,51 +43,26 @@ class MyCarousel extends Component {
           <Thumbnail
             bordered
             source={{ uri: item.image }}
-            style={{
-              position: "absolute"
-            }}
+            style={styles.thumbnail}
           />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              color: "white",
-              position: "absolute",
-              marginLeft: 20,
-              top: 15,
-              left: 50
-            }}
-          >
-            {item.name}
-          </Text>
-          <Text
-            note
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              color: "white",
-              position: "absolute",
-              marginLeft: 20,
-              top: 35,
-              left: 50
-            }}
-          >
-            {item.points}
-          </Text>
+          <Text style={styles.text}>{item.name}</Text>
           <Icon
             onPress={() => pointStore.addPoint(item.id)}
-            name="plus-circle"
+            name="heart"
             type="MaterialCommunityIcons"
-            style={{
-              color: "rgb(153,0,0)",
-              position: "absolute",
-              marginLeft: 20,
-              bottom: 5,
-              right: 5
-            }}
+            style={styles.icon}
+          />
+          <Rating
+            type="heart"
+            ratingCount={item.points}
+            startingValue={pointStore.userPoints} // divide user's points by vendors points
+            imageSize={30}
+            readonly
+            onFinishRating={"this.ratingCompleted"}
+            style={styles.rating}
           />
         </ImageBackground>
-      </View>
+      </Card>
     );
   }
 
@@ -110,22 +79,5 @@ class MyCarousel extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  item: {
-    width: screenWidth - 60,
-    height: screenWidth - 160
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ ios: 1, android: 0 }), // Prevent a random Android rendering issue
-    backgroundColor: "white",
-    borderRadius: 15
-  },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: "cover"
-  }
-});
 
 export default observer(MyCarousel);
