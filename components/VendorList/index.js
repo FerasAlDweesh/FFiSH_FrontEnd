@@ -1,8 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-import Background from "../../Auth/components/Background";
-
 // NativeBase Components
 import {
   Body,
@@ -26,9 +24,7 @@ import {
 } from "native-base";
 // Component
 import MyCarousel from "../Carousel/index";
-
-// Buttons
-import LogoutButton from "../Buttons/LogoutButton";
+import Background from "../../Auth/components/Background";
 
 // Stores
 import vendorStore from "../../stores/vendorStore";
@@ -37,15 +33,17 @@ const VendorList = () => {
   if (vendorStore.loading) return <Spinner color="red" />;
 
   return (
-    <Background>
-      <Container>
+    <Container>
+      <Background>
         <Left>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 30,
               fontFamily: "DamascusBold",
               position: "absolute",
-              right: 15
+              right: 0,
+              top: 25,
+              marginTop: 22
             }}
           >
             Restaurants
@@ -55,10 +53,12 @@ const VendorList = () => {
         <Left>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 30,
               fontFamily: "DamascusBold",
               position: "absolute",
-              right: 15
+              right: 95,
+              top: 25,
+              marginTop: 22
             }}
           >
             Cafes
@@ -68,24 +68,25 @@ const VendorList = () => {
         <Left>
           <Text
             style={{
-              fontSize: 25,
+              fontSize: 30,
               fontFamily: "DamascusBold",
               position: "absolute",
-              right: 15
+              right: 75,
+              top: 25,
+              marginTop: 22
             }}
           >
             Donuts
           </Text>
         </Left>
         <MyCarousel />
-      </Container>
-    </Background>
+      </Background>
+    </Container>
   );
 };
 
 VendorList.navigationOptions = {
-  title: "Vendor Cards",
-  headerLeft: <LogoutButton />
+  headerTransparent: true
 };
 
 export default observer(VendorList);

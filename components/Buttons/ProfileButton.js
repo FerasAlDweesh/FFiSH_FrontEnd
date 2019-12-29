@@ -13,8 +13,8 @@ const ProfileButton = ({ navigation }) => {
         <Icon
           name="person"
           type="MaterialIcons"
-          style={{ color: "rgb(153,0,0)" }}
-          onPress={() => navigation.replace("Profile")}
+          style={{ color: "#F24502" }}
+          onPress={() => navigation.navigate("Profile")}
         />
       )}
     </Button>

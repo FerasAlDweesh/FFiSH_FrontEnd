@@ -1,20 +1,17 @@
 import { decorate, observable } from "mobx";
 import { instance } from "./instance";
-import vendorStore from "./vendorStore";
+import cardStore from "./cardStore";
 class PointStore {
   points = [];
-  userPoints = [];
   loading = true;
 
-  addPoint = async cardID => {
-    const card = { card: cardID };
+  addPoint = async vendor_id => {
+    const vendor = { vendor: vendor_id };
     try {
-      const res = await instance.post("points/", card);
+      const res = await instance.post("createpoint/", vendor);
       const points = res.data;
-      console.log("Errorrrrrr", points);
-      this.userPoints = points % vendorStore.vendorCards.points;
       this.loading = false;
-      console.log("LOADINGNNG", this.loading);
+      await cardStore.fetchAllCards();
     } catch (err) {
       console.log("ERROR", err);
     }
