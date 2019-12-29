@@ -65,10 +65,10 @@ const styles = StyleSheet.create({
   rating: {
     position: "absolute",
     bottom: 10,
-    borderColor: "black"
+    left: 5
   },
   icon: {
-    color: "rgb(153,0,0)",
+    color: "#F24502",
     position: "absolute",
     marginLeft: 20,
     bottom: 5,
