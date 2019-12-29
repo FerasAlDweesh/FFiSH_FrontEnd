@@ -1,6 +1,6 @@
 import { decorate, observable } from "mobx";
 import { instance } from "./instance";
-import vendorStore from "./vendorStore";
+import cardStore from "./cardStore";
 class PointStore {
   points = [];
   loading = true;
@@ -10,9 +10,8 @@ class PointStore {
     try {
       const res = await instance.post("createpoint/", vendor);
       const points = res.data;
-      console.log("Errorrrrrr", points);
       this.loading = false;
-      console.log("LOADINGNNG", this.loading);
+      await cardStore.fetchAllCards();
     } catch (err) {
       console.log("ERROR", err);
     }
@@ -22,7 +21,6 @@ class PointStore {
     try {
       const res = await instance.get("points/");
       const points = res.data;
-      console.log("the users points", points);
       this.points = points;
       this.loading = false;
     } catch (err) {

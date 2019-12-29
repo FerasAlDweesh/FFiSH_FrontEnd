@@ -23,6 +23,18 @@ class LoginScreen extends Component {
     authStore.login(this.state, this.props.navigation);
   };
 
+  componentDidMount = async () => {
+    if (authStore.user) {
+      this.props.navigation.replace("Profile");
+    }
+  };
+
+  componentDidUpdate = () => {
+    if (authStore.user) {
+      this.props.navigation.replace("Profile");
+    }
+  };
+
   render() {
     return (
       <Background>
@@ -62,11 +74,13 @@ class LoginScreen extends Component {
 
         <View style={styles.row}>
           <Text style={styles.label}>Don’t have an account? </Text>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("RegisterScreen")}
+
+          <Text
+            onPress={() => this.props.navigation.navigate("Register")}
+            style={styles.link}
           >
-            <Text style={styles.link}>Sign up</Text>
-          </TouchableOpacity>
+            Sign up
+          </Text>
         </View>
       </Background>
     );

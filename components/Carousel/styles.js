@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   text: {
     fontWeight: "bold",
-    fontSize: 18,
+    fontSize: 25,
     color: "white",
     position: "absolute",
     marginLeft: 20,
@@ -47,15 +47,14 @@ const styles = StyleSheet.create({
   },
   background: {
     height: 190,
-    width: 350,
+    width: 335,
     position: "relative",
-    top: 2,
-    left: 2
+    top: 28
   },
   imageContainer: {
     flex: 1,
     marginBottom: Platform.select({ ios: 1, android: 0 }), // Prevent a random Android rendering issue
-    backgroundColor: "white",
+    backgroundColor: "transparent",
     borderRadius: 15
   },
   image: {
