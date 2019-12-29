@@ -44,12 +44,6 @@ class MyCarousel extends Component {
             parallaxFactor={0.4}
             {...parallaxProps}
           />
-          <Thumbnail
-            bordered
-            source={{ uri: item.image }}
-            style={styles.thumbnail}
-          />
-          <Text style={styles.text}>{item.name}</Text>
           <Icon
             onPress={() => pointStore.addPoint(item.id)}
             name="plus-circle"

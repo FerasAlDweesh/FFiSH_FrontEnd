@@ -5,5 +5,9 @@ import axios from "axios";
 // });
 
 export const instance = axios.create({
-  baseURL: "http://207.154.194.82/api/"
+  baseURL: "http://192.168.100.227/api/"
 });
+
+// export const instance = axios.create({
+//   baseURL: "http://207.154.194.82/api/"
+// });

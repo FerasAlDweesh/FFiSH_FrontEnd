@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   image: {
     ...StyleSheet.absoluteFillObject,
-    resizeMode: "cover"
+    resizeMode: "contain"
   },
   rating: {
     position: "absolute",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     left: 5
   },
   icon: {
-    color: "#F24502",
+    color: "white",
     position: "absolute",
     marginLeft: 20,
     bottom: 5,
