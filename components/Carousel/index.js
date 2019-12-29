@@ -1,20 +1,12 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
-import {
-  Dimensions,
-  StyleSheet,
-  View,
-  Text,
-  ImageBackground
-} from "react-native";
+import { Dimensions, ImageBackground } from "react-native";
 
 // NativeBase Components
-import { Right, Icon, Container, Card } from "native-base";
+import { Icon, Card } from "native-base";
 import { Rating } from "react-native-ratings";
 import vendorStore from "../../stores/vendorStore";
-import { red, bold } from "ansi-colors";
-import { Thumbnail } from "native-base";
 
 // Style
 import styles from "./styles";
@@ -22,12 +14,8 @@ import styles from "./styles";
 // Stores
 import pointStore from "../../stores/pointStore";
 
-// Buttons
-import AddPointButton from "../Buttons/AddPointButton";
-
 const circle = require("../../Auth/assets/circle.png");
 const rating_icon = require("../../Auth/assets/ratingicon.png");
-const rating_icon2 = require("../../Auth/assets/ratingicon2.png");
 
 const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
