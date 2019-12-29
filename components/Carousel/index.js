@@ -25,6 +25,10 @@ import pointStore from "../../stores/pointStore";
 // Buttons
 import AddPointButton from "../Buttons/AddPointButton";
 
+const circle = require("../../Auth/assets/circle.png");
+const rating_icon = require("../../Auth/assets/ratingicon.png");
+const rating_icon2 = require("../../Auth/assets/ratingicon2.png");
+
 const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
   _renderItem({ item, index }, parallaxProps) {
@@ -48,15 +52,28 @@ class MyCarousel extends Component {
           <Text style={styles.text}>{item.name}</Text>
           <Icon
             onPress={() => pointStore.addPoint(item.id)}
-            name="heart"
+            name="plus-circle"
             type="MaterialCommunityIcons"
             style={styles.icon}
           />
           <Rating
-            type="heart"
+            type="custom"
+            ratingImage={circle}
+            ratingColor=""
+            ratingBackgroundColor=""
             ratingCount={item.points}
-            startingValue={pointStore.userPoints} // divide user's points by vendors points
-            imageSize={30}
+            imageSize={28}
+            readonly
+            onFinishRating={"this.ratingCompleted"}
+            style={styles.rating}
+          />
+          <Rating
+            type="custom"
+            ratingImage={rating_icon}
+            ratingColor=""
+            ratingBackgroundColor=""
+            ratingCount={3} //{pointStore.userPoints}
+            imageSize={28}
             readonly
             onFinishRating={"this.ratingCompleted"}
             style={styles.rating}
