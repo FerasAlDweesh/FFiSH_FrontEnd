@@ -28,6 +28,7 @@ import Background from "../../Auth/components/Background";
 
 // Stores
 import vendorStore from "../../stores/vendorStore";
+import QrButton from "../Buttons/QrButton";
 import LogoutButton from "../Buttons/LogoutButton";
 
 const VendorList = () => {
@@ -80,6 +81,7 @@ const VendorList = () => {
             Donuts
           </Text>
         </Left>
+        <QrButton />
         <MyCarousel cards={vendorStore.donuts} />
       </Background>
     </Container>

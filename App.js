@@ -1,6 +1,6 @@
 import React from "react";
 import AppContainer from "./navigation";
-import { Spinner } from "native-base";
+import { Spinner, Root } from "native-base";
 import Font from "expo-font";
 import authStore from "./stores/authStore";
 
@@ -22,7 +22,12 @@ class App extends React.Component {
     if (this.state.loading) {
       return <Spinner color="red" />;
     }
-    return <AppContainer />;
+
+    return (
+      <Root>
+        <AppContainer />
+      </Root>
+    );
   }
 }
 
