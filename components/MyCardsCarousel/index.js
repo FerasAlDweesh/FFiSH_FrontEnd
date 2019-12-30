@@ -40,12 +40,7 @@ class MyCardsCarousel extends Component {
             parallaxFactor={0.4}
             {...parallaxProps}
           />
-          {/* <Icon
-            onPress={() => pointStore.addPoint(item.id)}
-            name="plus-circle"
-            type="MaterialCommunityIcons"
-            style={styles.icon}
-          /> */}
+
           {item.user_points / item.vendor_points >= 1 && (
             <Icon
               name="gift"
@@ -61,7 +56,6 @@ class MyCardsCarousel extends Component {
             ratingCount={item.vendor_points}
             imageSize={28}
             readonly
-            onFinishRating={"this.ratingCompleted"}
             style={styles.rating}
           />
           <Rating
@@ -72,7 +66,6 @@ class MyCardsCarousel extends Component {
             ratingCount={item.user_points % item.vendor_points}
             imageSize={28}
             readonly
-            onFinishRating={"this.ratingCompleted"}
             style={styles.rating}
           />
         </ImageBackground>

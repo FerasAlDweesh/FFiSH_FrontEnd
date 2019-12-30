@@ -29,8 +29,6 @@ class RegisterScreen extends Component {
   render() {
     return (
       <Background>
-        <BackButton goBack={() => navigation.navigate("HomeScreen")} />
-
         <Logo />
 
         <Header>Create Account</Header>
