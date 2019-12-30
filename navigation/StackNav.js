@@ -4,8 +4,6 @@ import React from "react";
 // Components
 import VendorList from "../components/VendorList";
 import Profile from "../components/Profile";
-
-import Login from "../components/Login";
 import VendorDetail from "../components/VendorDetail";
 import ElevationDetail from "../components/ElevationDetail";
 import KrispyDetail from "../components/KrispDetail";
@@ -17,7 +15,6 @@ import QrCode from "../components/QrCode/index";
 // Auth
 import LoginScreen from "../Auth/screens/LoginScreen";
 import RegisterScreen from "../Auth/screens/RegisterScreen";
-
 
 const StackNav = createStackNavigator(
   {
@@ -31,7 +28,6 @@ const StackNav = createStackNavigator(
     Login: LoginScreen,
     Register: RegisterScreen,
     QrCode: QrCode
-
   },
   {
     initialRouteName: "VendorList",

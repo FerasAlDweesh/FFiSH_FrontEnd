@@ -84,7 +84,6 @@ const VendorList = () => {
             Donuts
           </Text>
         </Left>
-        <QrButton />
         <MyCarousel cards={vendorStore.donuts} />
       </Background>
     </Container>
