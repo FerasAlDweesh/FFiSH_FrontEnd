@@ -54,7 +54,7 @@ class MyCarousel extends Component {
             ratingImage={rating_icon}
             ratingColor=""
             ratingBackgroundColor=""
-            ratingCount={3} //{pointStore.userPoints}
+            ratingCount={3}
             imageSize={28}
             readonly
             onFinishRating={"this.ratingCompleted"}

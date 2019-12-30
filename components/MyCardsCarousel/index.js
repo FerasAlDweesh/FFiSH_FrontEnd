@@ -51,7 +51,7 @@ class MyCardsCarousel extends Component {
             ratingImage={rating_icon}
             ratingColor=""
             ratingBackgroundColor=""
-            ratingCount={3}
+            ratingCount={item.user_points}
             imageSize={28}
             readonly
             onFinishRating={"this.ratingCompleted"}
