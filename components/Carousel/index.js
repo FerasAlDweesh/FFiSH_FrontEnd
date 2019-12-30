@@ -13,6 +13,7 @@ import styles from "./styles";
 
 // Stores
 import pointStore from "../../stores/pointStore";
+import cardStore from "../../stores/cardStore";
 
 const circle = require("../../Auth/assets/circle.png");
 const rating_icon = require("../../Auth/assets/ratingicon.png");
@@ -38,28 +39,6 @@ class MyCarousel extends Component {
             type="MaterialCommunityIcons"
             style={styles.icon}
           /> */}
-          <Rating
-            type="custom"
-            ratingImage={circle}
-            ratingColor=""
-            ratingBackgroundColor=""
-            ratingCount={item.points}
-            imageSize={28}
-            readonly
-            onFinishRating={"this.ratingCompleted"}
-            style={styles.rating}
-          />
-          <Rating
-            type="custom"
-            ratingImage={rating_icon}
-            ratingColor=""
-            ratingBackgroundColor=""
-            ratingCount={3}
-            imageSize={28}
-            readonly
-            onFinishRating={"this.ratingCompleted"}
-            style={styles.rating}
-          />
         </ImageBackground>
       </Card>
     );
