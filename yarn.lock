@@ -850,6 +850,14 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@callstack/react-theme-provider@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@callstack/react-theme-provider/-/react-theme-provider-3.0.5.tgz#a173e455e9603c9c45357a3b6ace1273086527ca"
+  integrity sha512-Iec+ybWN0FvNj87sD3oWo/49edGUP0UOSdMnzCJEFJIDYr992ECIuOV89burAAh2/ibPCxgLiK6dmgv2mO/8Tg==
+  dependencies:
+    deepmerge "^3.2.0"
+    hoist-non-react-statics "^3.3.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
@@ -1772,7 +1780,7 @@ color-support@^1.1.3:
   resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
   integrity sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==
 
-color@~3.1.2:
+color@^3.1.2, color@~3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
@@ -1905,7 +1913,7 @@ cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
-create-react-class@^15.6.2, create-react-class@^15.6.3:
+create-react-class@^15.6.0, create-react-class@^15.6.2, create-react-class@^15.6.3:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   integrity sha512-M+/3Q6E6DLO6Yx3OwrWjwHBnvfXXYA7W+dFjt/ZDBemHO1DDZhsalX/NUtnTYclN6GfnBDRh4qRHjcDHmlJBJg==
@@ -2199,6 +2207,14 @@ expo-asset@~8.0.0:
     blueimp-md5 "^2.10.0"
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
+
+expo-barcode-scanner@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/expo-barcode-scanner/-/expo-barcode-scanner-8.0.0.tgz#f574191621907aa286cf47f6757031cc112720a5"
+  integrity sha512-8RCloJFXsx1ToXBRNHAjJ14fhHTKzumqY9Vz9Tmk/PRwMEFSpNNsVrlZ2Vp229wJQxOuVsGA5oHkbeeHdt7m9Q==
+  dependencies:
+    lodash "^4.6.0"
+    prop-types "^15.6.0"
 
 expo-constants@~8.0.0:
   version "8.0.0"
@@ -4273,6 +4289,11 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
+qr.js@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
+  integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
+
 qs@^6.5.0:
   version "6.9.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.1.tgz#20082c65cb78223635ab1a9eaca8875a29bf8ec9"
@@ -4340,6 +4361,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-camera@^3.15.0:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.15.0.tgz#dd8c7fcf75b347e0b07c1dedeba2ba47504ff80a"
+  integrity sha512-GoRq2gHMvidcMCzj0AjaIbrJy5ZRE1XxLUIGN+M/Ev2r2RXGFWBToGoDvy4KZcwF3THWefVAZL1It+fT8pvxgQ==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-drawer@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz#08b9314184f48c724f1b467f8859797369798654"
@@ -4391,10 +4419,36 @@ react-native-numeric-input@^1.8.3:
     prop-types "^15.6.1"
     react-native-pixel-perfect "^1.0.1"
 
+react-native-paper@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-3.4.0.tgz#b8d3643b33177ff41a2505aaa801d313defaf707"
+  integrity sha512-QVd6vZ4iJbUqp1OI1DY/0HwBS4y0SVixa2IeBIVyYM4ZZeoeOOlWCXdgtQk7tlf1ju5t1MJunyRGPOXOXTLGNg==
+  dependencies:
+    "@callstack/react-theme-provider" "^3.0.5"
+    color "^3.1.2"
+    react-native-safe-area-view "^0.14.6"
+
 react-native-pixel-perfect@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-native-pixel-perfect/-/react-native-pixel-perfect-1.0.2.tgz#8e6dc97e377caa4bd07f9e584ba438d53c0e25e8"
   integrity sha512-0IvYCNkxuQbQC9q4tI+C3i6o38nbx916p7gBRBWuPxDhKBCuTkVV3VukcfW6vtjRlwQm6kwQcF9OtI+yUBt+YA==
+
+react-native-qrcode-generator@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-qrcode-generator/-/react-native-qrcode-generator-1.1.0.tgz#f42ea72463c6c463a728bb641dc59f012024ae2a"
+  integrity sha512-wqknN+ONf5PsT4akVUkjAq7Alme9IO3Yq+Qo4orqKoIDqzrE8OrgVkKGRv8sgAw3V7rUZjSRMqHrkQrQaKRSLg==
+  dependencies:
+    create-react-class "^15.6.0"
+    prop-types "^15.5.10"
+    qr.js "0.0.0"
+
+react-native-ratings@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.5.0.tgz#a1606ccba3c5b54eec8e6cfa4765a45cf0e4ab8d"
+  integrity sha512-YMcfQ7UQCmXGEc/WPlukHSHs5yvckTwjq5fTRk1FG8gaO7fZCNygEUGPuw4Dbvvp3IlsCUn0bOQd63RYsb7NDQ==
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
 
 react-native-reanimated@^1.4.0:
   version "1.4.0"
@@ -4423,10 +4477,39 @@ react-native-snap-carousel@^3.8.4:
     prop-types "^15.6.1"
     react-addons-shallow-compare "15.6.2"
 
+react-native-status-bar-height@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.4.0.tgz#de8cee4bb733a196167210d2d0bc1fa10acba3e3"
+  integrity sha512-pWvZFlyIHiuxLugLioq97vXiaGSovFXEyxt76wQtbq0gxv4dGXMPqYow46UmpwOgeJpBhqL1E0EKxnfJRrFz5w==
+
 react-native-tab-view@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.11.0.tgz#2e57d1f617ccc88c7f452708804f3409f880b700"
   integrity sha512-vqetlxGO7A8bnqvXcB50MWpRZAImXFrDGz1WCQKdCqe03Ey3ZzENe7yLuWrtBJYlepGfOLAsmCXv+wW82Yfm1w==
+
+react-native-unimodules@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-unimodules/-/react-native-unimodules-0.7.0.tgz#ce4e48898c3ef0b986b87e7421303abf8afc862c"
+  integrity sha512-7tdSIWx5/EhDkEpGYCNaIsiJwluJYsJ0BtvJUVuWliRbN/IBVRc1b/nW4CKKSW/w+fXPel+k3GNlAN0p0S/BiA==
+  dependencies:
+    "@unimodules/core" "~5.0.0"
+    "@unimodules/react-native-adapter" "~5.0.0"
+    chalk "^2.4.2"
+    expo-app-loader-provider "~8.0.0"
+    expo-asset "~8.0.0"
+    expo-constants "~8.0.0"
+    expo-file-system "~8.0.0"
+    expo-permissions "~8.0.0"
+    unimodules-barcode-scanner-interface "~5.0.0"
+    unimodules-camera-interface "~5.0.0"
+    unimodules-constants-interface "~5.0.0"
+    unimodules-face-detector-interface "~5.0.0"
+    unimodules-file-system-interface "~5.0.0"
+    unimodules-font-interface "~5.0.0"
+    unimodules-image-loader-interface "~5.0.0"
+    unimodules-permissions-interface "~5.0.0"
+    unimodules-sensors-interface "~5.0.0"
+    unimodules-task-manager-interface "~5.0.0"
 
 react-native-vector-icons@^6.6.0:
   version "6.6.0"

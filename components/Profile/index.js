@@ -22,6 +22,9 @@ import {
   Left
 } from "native-base";
 
+// Components
+import Background from "../../Auth/components/Background";
+
 // Buttons
 
 import LogoutButton from "../Buttons/LogoutButton";
@@ -30,6 +33,8 @@ import LogoutButton from "../Buttons/LogoutButton";
 import authStore from "../../stores/authStore";
 import cardStore from "../../stores/cardStore";
 import profileStore from "../../stores/profileStore";
+import QrCode from "../QrCode";
+import QrButton from "../Buttons/QrButton";
 
 class Profile extends Component {
   componentDidMount = async () => {
@@ -48,7 +53,6 @@ class Profile extends Component {
   };
 
   render() {
-    console.log("this is a message", cardStore.cards);
     if (profileStore.loading || cardStore.loading) {
       return <Spinner />;
     } else {
@@ -59,33 +63,58 @@ class Profile extends Component {
       return (
         <>
           <Content>
-            <List>
-              <ListItem thumbnail>
-                <Left>
-                  <Thumbnail
-                    style={{ width: 120, height: 120, borderRadius: 30 / 2 }}
-                    square
-                    source={{
-                      uri:
-                        "https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg"
-                    }}
-                  />
-                </Left>
-                <Body>
-                  <Text style={{ fontSize: 30 }}>{profileStore.user.name}</Text>
-                  <Text note style={{ fontSize: 15 }}>
-                    {profileStore.user.email}
-                  </Text>
-                </Body>
-              </ListItem>
-              <Header>
-                <Left>
-                  <Text style={{ fontSize: 30 }}>My Cards:</Text>
-                </Left>
-              </Header>
-              <MyCardsCarousel />
-            </List>
+            <Background>
+              <List>
+                <ListItem thumbnail style={{ top: 25 }}>
+                  <Left>
+                    <Thumbnail
+                      style={{ width: 120, height: 120, borderRadius: 30 / 2 }}
+                      square
+                      source={{
+                        uri:
+                          "https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg"
+                      }}
+                    />
+                  </Left>
+                  <Body>
+                    <Text style={{ fontSize: 30, fontFamily: "Damascus" }}>
+                      {profileStore.user.name}
+                    </Text>
+                    <Text note style={{ fontSize: 15, fontFamily: "Damascus" }}>
+                      {profileStore.user.email}
+                    </Text>
+                  </Body>
+                </ListItem>
+                <Header transparent>
+                  <Left>
+                    <Text
+                      style={{
+                        fontSize: 30,
+                        fontFamily: "DamascusBold"
+                      }}
+                    >
+                      Favorites
+                    </Text>
+                  </Left>
+                </Header>
+                <MyCardsCarousel />
+                <Header transparent>
+                  <Left>
+                    <Text
+                      style={{
+                        fontSize: 30,
+                        fontFamily: "DamascusBold"
+                      }}
+                    >
+                      Scan Me
+                    </Text>
+                  </Left>
+                </Header>
+              </List>
+            </Background>
+            <QrButton />
           </Content>
+          <LogoutButton />
         </>
       );
     }
@@ -93,7 +122,7 @@ class Profile extends Component {
 }
 
 Profile.navigationOptions = {
-  title: "Profile",
-  headerLeft: <LogoutButton />
+  headerTintColor: "#F24502",
+  headerTransparent: true
 };
 export default observer(Profile);

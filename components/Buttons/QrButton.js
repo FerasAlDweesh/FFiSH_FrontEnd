@@ -6,21 +6,21 @@ import { Icon, Button } from "native-base";
 // Stores
 import authStore from "../../stores/authStore";
 
-const ProfileButton = ({ navigation }) => {
+const QrButton = ({ navigation }) => {
   return (
     <Button transparent light>
       {authStore.user ? (
         <>
           <Icon
-            name="person"
-            type="MaterialIcons"
+            name="qrcode"
+            type="AntDesign"
             style={{ color: "#F24502" }}
-            onPress={() => navigation.navigate("Profile")}
+            onPress={() => navigation.navigate("QrCode")}
           />
         </>
       ) : (
         <Icon
-          name="login"
+          name="button"
           type="MaterialCommunityIcons"
           style={{ color: "#F24502" }}
           onPress={() => navigation.navigate("Login")}
@@ -30,4 +30,4 @@ const ProfileButton = ({ navigation }) => {
   );
 };
 
-export default withNavigation(observer(ProfileButton));
+export default withNavigation(observer(QrButton));

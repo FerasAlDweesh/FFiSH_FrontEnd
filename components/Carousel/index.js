@@ -2,23 +2,35 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 import { withNavigation } from "react-navigation";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
-import {
-  Dimensions,
-  StyleSheet,
-  View,
-  Text,
-  ImageBackground
-} from "react-native";
+import { Dimensions, ImageBackground } from "react-native";
+
+// NativeBase Components
+import { Icon, Card } from "native-base";
+import { Rating } from "react-native-ratings";
 import vendorStore from "../../stores/vendorStore";
+
 import { red, bold } from "ansi-colors";
 import { Thumbnail } from "native-base";
 import { TouchableOpacity } from "react-native";
+
+
+// Style
+import styles from "./styles";
+
+// Stores
+import pointStore from "../../stores/pointStore";
+import cardStore from "../../stores/cardStore";
+
+const circle = require("../../Auth/assets/circle.png");
+const rating_icon = require("../../Auth/assets/ratingicon.png");
+
 
 const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
   _renderItem = ({ item, index }, parallaxProps) => {
     return (
-      <View>
+
+      <Card style={styles.transparent}>
         <TouchableOpacity
           onPress={() => {
             if (item.id === 1) this.props.navigation.navigate("VendorDetail");
@@ -28,47 +40,27 @@ class MyCarousel extends Component {
               this.props.navigation.navigate("KrispyDetail");
           }}
         >
-          <ImageBackground
-            style={{
-              height: 190,
-              width: 350,
-              position: "relative",
-              top: 2,
-              left: 2
+        <ImageBackground style={styles.background}>
+          <ParallaxImage
+            source={{
+              uri: item.image
             }}
-          >
-            <ParallaxImage
-              source={{
-                uri: item.image
-              }}
-              containerStyle={styles.imageContainer}
-              style={styles.image}
-              parallaxFactor={0.4}
-              {...parallaxProps}
-            />
-            <Thumbnail
-              bordered
-              source={{ uri: item.image }}
-              style={{
-                position: "absolute"
-              }}
-            />
-            <Text
-              style={{
-                fontWeight: "bold",
-                fontSize: 18,
-                color: "white",
-                position: "absolute",
-                marginLeft: 20,
-                top: 15,
-                left: 50
-              }}
-            >
-              {item.name}
-            </Text>
-          </ImageBackground>
+            containerStyle={styles.imageContainer}
+            style={styles.image}
+            parallaxFactor={0.4}
+            {...parallaxProps}
+          />
+          {/* <Icon
+            onPress={() => pointStore.addPoint(item.id)}
+            name="plus-circle"
+            type="MaterialCommunityIcons"
+            style={styles.icon}
+          /> */}
+        </ImageBackground>
+
         </TouchableOpacity>
-      </View>
+      </Card>
+
     );
   };
 
@@ -80,7 +72,7 @@ class MyCarousel extends Component {
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}
-        data={vendorStore.vendorCards}
+        data={this.props.cards}
         renderItem={this._renderItem}
         hasParallaxImages={true}
       />
@@ -88,21 +80,5 @@ class MyCarousel extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  item: {
-    width: screenWidth - 60,
-    height: screenWidth - 160
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ ios: 1, android: 0 }), // Prevent a random Android rendering issue
-    backgroundColor: "white",
-    borderRadius: 15
-  },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: "cover"
-  }
-});
-
 export default withNavigation(observer(MyCarousel));
+

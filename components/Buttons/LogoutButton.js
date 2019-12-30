@@ -14,10 +14,12 @@ const LogoutButton = ({ navigation }) => {
   if (authStore.user)
     return (
       <Icon
-        onPress={() => authStore.logout(navigation)}
+        onPress={() =>
+          authStore.logout(navigation) && navigation.navigate("VendorList")
+        }
         name="power"
         type="MaterialCommunityIcons"
-        style={{ color: "rgb(153,0,0)" }}
+        style={{ color: "rgb(153,0,0)", left: 10 }}
       />
     );
 };

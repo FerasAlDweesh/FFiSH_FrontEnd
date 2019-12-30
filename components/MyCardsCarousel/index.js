@@ -8,25 +8,29 @@ import {
   Text,
   ImageBackground
 } from "react-native";
+
+// NativeBase Components
+import { Icon, Card } from "native-base";
+import { Rating } from "react-native-ratings";
+
+// Style
+import styles from "./styles";
+
+// Stores
 import vendorStore from "../../stores/vendorStore";
-import { red, bold } from "ansi-colors";
-import { Thumbnail } from "native-base";
+import pointStore from "../../stores/pointStore";
 import cardStore from "../../stores/cardStore";
+import LogoutButton from "../Buttons/LogoutButton";
+
+const circle = require("../../Auth/assets/circle.png");
+const rating_icon = require("../../Auth/assets/ratingicon.png");
 
 const { width: screenWidth } = Dimensions.get("window");
 class MyCardsCarousel extends Component {
   _renderItem({ item, index }, parallaxProps) {
     return (
-      <View>
-        <ImageBackground
-          style={{
-            height: 190,
-            width: 350,
-            position: "relative",
-            top: 2,
-            left: 2
-          }}
-        >
+      <Card style={styles.transparent}>
+        <ImageBackground style={styles.background}>
           <ParallaxImage
             source={{
               uri: item.vendor.image
@@ -36,31 +40,43 @@ class MyCardsCarousel extends Component {
             parallaxFactor={0.4}
             {...parallaxProps}
           />
-          <Thumbnail
-            bordered
-            source={{
-              uri:
-                "https://image.freepik.com/free-vector/man-profile-cartoon_18591-58482.jpg"
-            }}
-            style={{
-              position: "absolute"
-            }}
+          {/* <Icon
+            onPress={() => pointStore.addPoint(item.id)}
+            name="plus-circle"
+            type="MaterialCommunityIcons"
+            style={styles.icon}
+          /> */}
+          {item.user_points / item.vendor_points >= 1 && (
+            <Icon
+              name="gift"
+              type="MaterialCommunityIcons"
+              style={styles.icon}
+            />
+          )}
+          <Rating
+            type="custom"
+            ratingImage={circle}
+            ratingColor=""
+            ratingBackgroundColor=""
+            ratingCount={item.vendor_points}
+            imageSize={28}
+            readonly
+            onFinishRating={"this.ratingCompleted"}
+            style={styles.rating}
           />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              color: "white",
-              position: "absolute",
-              marginLeft: 20,
-              top: 15,
-              left: 50
-            }}
-          >
-            {item.vendor.name}
-          </Text>
+          <Rating
+            type="custom"
+            ratingImage={rating_icon}
+            ratingColor=""
+            ratingBackgroundColor=""
+            ratingCount={item.user_points % item.vendor_points}
+            imageSize={28}
+            readonly
+            onFinishRating={"this.ratingCompleted"}
+            style={styles.rating}
+          />
         </ImageBackground>
-      </View>
+      </Card>
     );
   }
 
@@ -77,22 +93,5 @@ class MyCardsCarousel extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  item: {
-    width: screenWidth - 60,
-    height: screenWidth - 160
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ ios: 1, android: 0 }), // Prevent a random Android rendering issue
-    backgroundColor: "white",
-    borderRadius: 15
-  },
-  image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: "cover"
-  }
-});
 
 export default observer(MyCardsCarousel);

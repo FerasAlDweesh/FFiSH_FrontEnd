@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Background from "../components/Background";
+import Logo from "../components/Logo";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import BackButton from "../components/BackButton";
+import { theme } from "../core/theme";
 
 // NativeBase Components
-import { Form, Item, Input, Button, Text } from "native-base";
+import { Form, Item, Input } from "native-base";
 
 // Store
 import authStore from "../../stores/authStore";
 
-class Register extends Component {
+class RegisterScreen extends Component {
   state = {
     username: "",
     password: "",
@@ -19,10 +26,15 @@ class Register extends Component {
   handlePress = () => {
     authStore.register(this.state, this.props.navigation);
   };
-
   render() {
     return (
-      <Form>
+      <Background>
+        <BackButton goBack={() => navigation.navigate("HomeScreen")} />
+
+        <Logo />
+
+        <Header>Create Account</Header>
+
         <Item>
           <Input
             placeholder="Username"
@@ -59,18 +71,44 @@ class Register extends Component {
             onChangeText={email => this.setState({ email })}
           />
         </Item>
-        <Button full onPress={this.handlePress}>
-          <Text>Register</Text>
+
+        <Button
+          mode="contained"
+          onPress={this.handlePress}
+          style={styles.button}
+        >
+          Sign Up
         </Button>
-        <Button full onPress={() => this.props.navigation.navigate("Login")}>
-          <Text>Already registered? Login here!</Text>
-        </Button>
-      </Form>
+
+        <View style={styles.row}>
+          <Text style={styles.label}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("LoginScreen")}>
+            <Text style={styles.link}>Login</Text>
+          </TouchableOpacity>
+        </View>
+      </Background>
     );
   }
 }
-Register.navigationOptions = {
+
+const styles = StyleSheet.create({
+  label: {
+    color: theme.colors.secondary
+  },
+  button: {
+    marginTop: 24
+  },
+  row: {
+    flexDirection: "row",
+    marginTop: 4
+  },
+  link: {
+    fontWeight: "bold",
+    color: theme.colors.primary
+  }
+});
+
+RegisterScreen.navigationOptions = {
   title: "Register"
 };
-
-export default Register;
+export default observer(RegisterScreen);
