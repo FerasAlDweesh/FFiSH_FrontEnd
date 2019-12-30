@@ -19,12 +19,14 @@ class PointStore {
 
   fetchUserPoints = async () => {
     try {
+      console.log("point 1");
       const res = await instance.get("points/");
+      console.log("point 2");
       const points = res.data;
       this.points = points;
       this.loading = false;
     } catch (err) {
-      console.log(err);
+      console.log("this is an", err);
     }
   };
 }
