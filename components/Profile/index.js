@@ -106,7 +106,7 @@ class Profile extends Component {
                         fontFamily: "DamascusBold"
                       }}
                     >
-                      Rewards
+                      Scan Me
                     </Text>
                   </Left>
                 </Header>
