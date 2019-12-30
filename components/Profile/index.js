@@ -112,6 +112,7 @@ class Profile extends Component {
               </List>
             </Background>
           </Content>
+          <LogoutButton />
         </>
       );
     }

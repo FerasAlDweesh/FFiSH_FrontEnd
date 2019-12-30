@@ -9,12 +9,21 @@ import authStore from "../../stores/authStore";
 const ProfileButton = ({ navigation }) => {
   return (
     <Button transparent light>
-      {authStore.user && (
+      {authStore.user ? (
+        <>
+          <Icon
+            name="person"
+            type="MaterialIcons"
+            style={{ color: "#F24502" }}
+            onPress={() => navigation.navigate("Profile")}
+          />
+        </>
+      ) : (
         <Icon
-          name="person"
-          type="MaterialIcons"
+          name="login"
+          type="MaterialCommunityIcons"
           style={{ color: "#F24502" }}
-          onPress={() => navigation.navigate("Profile")}
+          onPress={() => navigation.navigate("Login")}
         />
       )}
     </Button>

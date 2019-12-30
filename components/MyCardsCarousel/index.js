@@ -47,21 +47,10 @@ class MyCardsCarousel extends Component {
           />
           <Rating
             type="custom"
-            ratingImage={circle}
-            ratingColor=""
-            ratingBackgroundColor=""
-            ratingCount={item.points}
-            imageSize={28}
-            readonly
-            onFinishRating={"this.ratingCompleted"}
-            style={styles.rating}
-          />
-          <Rating
-            type="custom"
             ratingImage={rating_icon}
             ratingColor=""
             ratingBackgroundColor=""
-            ratingCount={3} //{pointStore.userPoints}
+            ratingCount={pointStore.points}
             imageSize={28}
             readonly
             onFinishRating={"this.ratingCompleted"}
