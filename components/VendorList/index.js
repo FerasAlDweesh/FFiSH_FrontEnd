@@ -28,6 +28,7 @@ import Background from "../../Auth/components/Background";
 
 // Stores
 import vendorStore from "../../stores/vendorStore";
+import LogoutButton from "../Buttons/LogoutButton";
 
 const VendorList = () => {
   if (vendorStore.loading) return <Spinner color="red" />;
@@ -49,7 +50,7 @@ const VendorList = () => {
             Restaurants
           </Text>
         </Left>
-        <MyCarousel />
+        <MyCarousel cards={vendorStore.restaurants} />
         <Left>
           <Text
             style={{
@@ -64,7 +65,7 @@ const VendorList = () => {
             Cafes
           </Text>
         </Left>
-        <MyCarousel />
+        <MyCarousel cards={vendorStore.cafes} />
         <Left>
           <Text
             style={{
@@ -79,7 +80,7 @@ const VendorList = () => {
             Donuts
           </Text>
         </Left>
-        <MyCarousel />
+        <MyCarousel cards={vendorStore.donuts} />
       </Background>
     </Container>
   );

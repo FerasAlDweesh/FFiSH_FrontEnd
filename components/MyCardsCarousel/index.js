@@ -20,6 +20,7 @@ import styles from "./styles";
 import vendorStore from "../../stores/vendorStore";
 import pointStore from "../../stores/pointStore";
 import cardStore from "../../stores/cardStore";
+import LogoutButton from "../Buttons/LogoutButton";
 
 const circle = require("../../Auth/assets/circle.png");
 const rating_icon = require("../../Auth/assets/ratingicon.png");
@@ -39,12 +40,12 @@ class MyCardsCarousel extends Component {
             parallaxFactor={0.4}
             {...parallaxProps}
           />
-          <Icon
+          {/* <Icon
             onPress={() => pointStore.addPoint(item.id)}
             name="plus-circle"
             type="MaterialCommunityIcons"
             style={styles.icon}
-          />
+          /> */}
           <Rating
             type="custom"
             ratingImage={rating_icon}

@@ -32,12 +32,12 @@ class MyCarousel extends Component {
             parallaxFactor={0.4}
             {...parallaxProps}
           />
-          <Icon
+          {/* <Icon
             onPress={() => pointStore.addPoint(item.id)}
             name="plus-circle"
             type="MaterialCommunityIcons"
             style={styles.icon}
-          />
+          /> */}
           <Rating
             type="custom"
             ratingImage={circle}
@@ -71,7 +71,7 @@ class MyCarousel extends Component {
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}
-        data={vendorStore.vendorCards}
+        data={this.props.cards}
         renderItem={this._renderItem}
         hasParallaxImages={true}
       />
