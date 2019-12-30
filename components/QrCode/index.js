@@ -5,7 +5,7 @@ import cardStore from "../../stores/cardStore";
 import pointStore from "../../stores/pointStore";
 import { Toast } from "native-base";
 
-export default function QrCode() {
+export default function QrCode(props) {
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
   useEffect(() => {
@@ -21,6 +21,7 @@ export default function QrCode() {
       text: "POINT ADDED!",
       buttonText: "Okay"
     });
+    props.navigation.navigate("Profile");
 
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     // CALL METHOD IN cardStore
