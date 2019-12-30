@@ -51,7 +51,6 @@ class Profile extends Component {
   };
 
   render() {
-    console.log("this is a message", cardStore.cards);
     if (profileStore.loading || cardStore.loading) {
       return <Spinner />;
     } else {
