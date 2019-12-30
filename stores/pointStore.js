@@ -24,6 +24,8 @@ class PointStore {
       console.log("point 2");
       const points = res.data;
       this.points = points;
+      console.log("point:", points);
+
       this.loading = false;
     } catch (err) {
       console.log("this is an", err);

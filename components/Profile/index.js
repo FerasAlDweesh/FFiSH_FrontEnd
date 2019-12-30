@@ -114,7 +114,6 @@ class Profile extends Component {
             </Background>
             <QrButton />
           </Content>
-          {/* <QrCode /> */}
           <LogoutButton />
         </>
       );
