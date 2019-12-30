@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import { withNavigation } from "react-navigation";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
 import {
   Dimensions,
@@ -11,56 +12,63 @@ import {
 import vendorStore from "../../stores/vendorStore";
 import { red, bold } from "ansi-colors";
 import { Thumbnail } from "native-base";
+import { TouchableOpacity } from "react-native";
 
 const { width: screenWidth } = Dimensions.get("window");
 class MyCarousel extends Component {
-  _renderItem({ item, index }, parallaxProps) {
+  _renderItem = ({ item, index }, parallaxProps) => {
     return (
       <View>
-        <ImageBackground
-          style={{
-            height: 190,
-            width: 350,
-            position: "relative",
-            top: 2,
-            left: 2
-          }}
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("VendorDetail")}
         >
-          <ParallaxImage
-            source={{
-              uri: item.image
-            }}
-            containerStyle={styles.imageContainer}
-            style={styles.image}
-            parallaxFactor={0.4}
-            {...parallaxProps}
-          />
-          <Thumbnail
-            bordered
-            source={{ uri: item.image }}
+          <ImageBackground
             style={{
-              position: "absolute"
-            }}
-          />
-          <Text
-            style={{
-              fontWeight: "bold",
-              fontSize: 18,
-              color: "white",
-              position: "absolute",
-              marginLeft: 20,
-              top: 15,
-              left: 50
+              height: 190,
+              width: 350,
+              position: "relative",
+              top: 2,
+              left: 2
             }}
           >
-            {item.name}
-          </Text>
-        </ImageBackground>
+            <ParallaxImage
+              source={{
+                uri: item.image
+              }}
+              containerStyle={styles.imageContainer}
+              style={styles.image}
+              parallaxFactor={0.4}
+              {...parallaxProps}
+            />
+            <Thumbnail
+              bordered
+              source={{ uri: item.image }}
+              style={{
+                position: "absolute"
+              }}
+            />
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 18,
+                color: "white",
+                position: "absolute",
+                marginLeft: 20,
+                top: 15,
+                left: 50
+              }}
+            >
+              {item.name}
+            </Text>
+          </ImageBackground>
+        </TouchableOpacity>
       </View>
     );
-  }
+  };
 
   render() {
+    console.log("carousel");
+    console.log(vendorStore.vendorCards);
     return (
       <Carousel
         sliderWidth={screenWidth}
@@ -91,4 +99,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default observer(MyCarousel);
+export default withNavigation(observer(MyCarousel));
