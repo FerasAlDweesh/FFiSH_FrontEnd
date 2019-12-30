@@ -33,6 +33,9 @@ import LogoutButton from "../Buttons/LogoutButton";
 
 const VendorList = () => {
   if (vendorStore.loading) return <Spinner color="red" />;
+  const vendorList = vendorStore.vendorCards.map(vendorCard => (
+    <MyCarousel item={vendorCard} key={vendorCard.id} />
+  ));
 
   return (
     <Container>
