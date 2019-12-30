@@ -19,22 +19,22 @@ import {
 } from "native-base";
 
 // Components
-import Mapping from "../Mapping";
+import KrispyMapping from "../KrispyMapping";
 
-class VendorDetail extends Component {
+class KrispyDetail extends Component {
   render() {
     return (
       <Container>
         <Content>
-          <Mapping />
+          <KrispyMapping />
         </Content>
       </Container>
     );
   }
 }
 
-VendorDetail.navigationOptions = ({ navigation }) => ({
-  title: navigation.getParam("vendorName")
+KrispyDetail.navigationOptions = ({ navigation }) => ({
+  title: "Krispy Kreme"
 });
 
-export default observer(VendorDetail);
+export default observer(KrispyDetail);

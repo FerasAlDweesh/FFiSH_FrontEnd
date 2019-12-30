@@ -19,22 +19,22 @@ import {
 } from "native-base";
 
 // Components
-import Mapping from "../Mapping";
+import ElevationMapping from "../ElevationMapping";
 
-class VendorDetail extends Component {
+class ElevationDetail extends Component {
   render() {
     return (
       <Container>
         <Content>
-          <Mapping />
+          <ElevationMapping />
         </Content>
       </Container>
     );
   }
 }
 
-VendorDetail.navigationOptions = ({ navigation }) => ({
-  title: navigation.getParam("vendorName")
+ElevationDetail.navigationOptions = ({ navigation }) => ({
+  title: "Elevation Burger"
 });
 
-export default observer(VendorDetail);
+export default observer(ElevationDetail);

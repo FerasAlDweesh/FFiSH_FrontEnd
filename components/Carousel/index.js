@@ -20,7 +20,13 @@ class MyCarousel extends Component {
     return (
       <View>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("VendorDetail")}
+          onPress={() => {
+            if (item.id === 1) this.props.navigation.navigate("VendorDetail");
+            else if (item.id === 2)
+              this.props.navigation.navigate("ElevationDetail");
+            else if (item.id === 10)
+              this.props.navigation.navigate("KrispyDetail");
+          }}
         >
           <ImageBackground
             style={{
