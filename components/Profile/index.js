@@ -33,6 +33,7 @@ import LogoutButton from "../Buttons/LogoutButton";
 import authStore from "../../stores/authStore";
 import cardStore from "../../stores/cardStore";
 import profileStore from "../../stores/profileStore";
+import QrCode from "../QrCode";
 
 class Profile extends Component {
   componentDidMount = async () => {
@@ -111,6 +112,7 @@ class Profile extends Component {
               </List>
             </Background>
           </Content>
+          <QrCode />
           <LogoutButton />
         </>
       );

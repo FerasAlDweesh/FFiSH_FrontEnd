@@ -5,6 +5,7 @@ import React from "react";
 import VendorList from "../components/VendorList";
 import Profile from "../components/Profile";
 import ProfileButton from "../components/Buttons/ProfileButton";
+import QrCode from "../components/QrCode/index";
 
 // Auth
 import LoginScreen from "../Auth/screens/LoginScreen";
@@ -15,7 +16,8 @@ const StackNav = createStackNavigator(
     VendorList: VendorList,
     Profile: Profile,
     Login: LoginScreen,
-    Register: RegisterScreen
+    Register: RegisterScreen,
+    QrCode: QrCode
   },
   {
     initialRouteName: "VendorList",
