@@ -34,6 +34,7 @@ import authStore from "../../stores/authStore";
 import cardStore from "../../stores/cardStore";
 import profileStore from "../../stores/profileStore";
 import QrCode from "../QrCode";
+import QrButton from "../Buttons/QrButton";
 
 class Profile extends Component {
   componentDidMount = async () => {
@@ -111,8 +112,9 @@ class Profile extends Component {
                 </Header>
               </List>
             </Background>
+            <QrButton />
           </Content>
-          <QrCode />
+          {/* <QrCode /> */}
           <LogoutButton />
         </>
       );

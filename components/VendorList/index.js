@@ -28,6 +28,7 @@ import Background from "../../Auth/components/Background";
 
 // Stores
 import vendorStore from "../../stores/vendorStore";
+import QrButton from "../Buttons/QrButton";
 
 const VendorList = () => {
   if (vendorStore.loading) return <Spinner color="red" />;
@@ -80,6 +81,7 @@ const VendorList = () => {
           </Text>
         </Left>
         <MyCarousel />
+        <QrButton />
       </Background>
     </Container>
   );
